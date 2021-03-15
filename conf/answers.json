@@ -1,0 +1,12 @@
+{
+    "Answers" : [
+        {
+            "YearBooklet" : "21A",
+            "Correct" : "ABCDABCDABCDABCDABCDABCDABCDABCDABCDABCDABCDABAAAA"
+        },
+        {
+            "YearBooklet" : "21B",
+            "Correct" : "ABCDABCDABCDABCDABCDABCDABCDABCDABCDABCDABCDABCDAB"
+        }
+    ]
+}
