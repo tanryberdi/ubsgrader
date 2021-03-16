@@ -21,7 +21,7 @@ var answers Answers // All correct answers that taken from answers.json file
 var table [99][30][50][2][100]int
 
 /*
-	table of points all students according to the checkek papers
+	table of points all students according to the checked papers
 	1-dimension entrance_year
 	2-dimension class_letter; A=1, B=2, C=2 and etc...
 	3-dimension order_id_student in a class
