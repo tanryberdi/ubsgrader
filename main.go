@@ -85,7 +85,7 @@ func readData() {
 }
 
 func main() {
-	fmt.Println("Reading  configurations from config files ...")
+	fmt.Println("Reading configurations from config files ...")
 	readConfig()
 
 	fmt.Println("Reading data from txt files ...")
