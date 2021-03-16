@@ -1,0 +1,56 @@
+{
+    "21A" : [
+        {
+            "Subject" : "Chemistry",
+            "Start" : 1,
+            "End" : 10
+        },
+        {
+            "Subject" : "Biology",
+            "Start" : 11,
+            "End" : 20
+        },
+        {
+            "Subject" : "English",
+            "Start" : 21,
+            "End" : 30
+        },
+        {
+            "Subject" : "History",
+            "Start" : 31,
+            "End" : 40
+        },
+        {
+            "Subject" : "Math",
+            "Start" : 41,
+            "End" : 50
+        }
+    ],
+    "21B" : [
+        {
+            "Subject" : "Math",
+            "Start" : 1,
+            "End" : 10
+        },
+        {
+            "Subject" : "History",
+            "Start" : 11,
+            "End" : 20
+        },
+        {
+            "Subject" : "English",
+            "Start" : 21,
+            "End" : 30
+        },
+        {
+            "Subject" : "Biology",
+            "Start" : 31,
+            "End" : 40
+        },
+        {
+            "Subject" : "Chemistry",
+            "Start" : 41,
+            "End" : 50
+        }
+    ]
+}
