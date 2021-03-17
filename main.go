@@ -29,6 +29,7 @@ var table [99][30][50][2][100]int
 	p.s : every 4 false answers are cancelling 1 true answer
 */
 var points [99][30][50][2]float32
+var SubjectsJSON string // content of subjects.json file; that is configuration of subjects according to the YearBooklet
 
 // Answer is a answer of each year and booklet
 type Answer struct {
@@ -57,6 +58,13 @@ func readConfig() {
 
 	byteValue, _ := ioutil.ReadAll(jsonFile)
 	json.Unmarshal(byteValue, &answers)
+
+	plan, _ := ioutil.ReadFile("conf/subjects.json")
+	SubjectsJSON = string(plan)
+	fmt.Println(SubjectsJSON)
+	//err = json.Unmarshal(plan, &data)
+	//check(err)
+	//fmt.Println(data)
 
 	/*
 		for i := 0; i < len(answers.Answers); i++ {
