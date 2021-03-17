@@ -6,8 +6,6 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
-
-	"github.com/tidwall/gjson"
 )
 
 var nline int       // number of line, it is number of students
@@ -64,10 +62,7 @@ func readConfig() {
 	// get any values from subjects.json file using gjson library
 	plan, _ := ioutil.ReadFile("conf/subjects.json")
 	SubjectsJSON = string(plan)
-	fmt.Println(SubjectsJSON)
-
-	value := gjson.Get(SubjectsJSON, "21A.#")
-	fmt.Println("Value --- > ", value)
+	//fmt.Println(SubjectsJSON)
 
 	/*
 		for i := 0; i < len(answers.Answers); i++ {

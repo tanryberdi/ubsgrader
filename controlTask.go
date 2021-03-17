@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"strconv"
+
+	"github.com/tidwall/gjson"
 )
 
 // control every line of data (*.txt) file
@@ -51,4 +53,15 @@ func controlTask(st string) {
 	fmt.Println(tr, " ", fls, " ", unsgn)
 	fmt.Println("Table testing...", table[entrance_year][class_letter][order_id_student][booklet_number][1:51])
 	fmt.Println("Point of student ", points[entrance_year][class_letter][order_id_student][booklet_number])
+
+	// Number of divided subjects according to the booklet
+	num_of_subjects := gjson.Get(SubjectsJSON, booklet+".#")
+
+	for i := 0; i < int(num_of_subjects.Int()); i++ {
+		fmt.Println("Subject ", i)
+		fmt.Println(gjson.Get(SubjectsJSON, booklet+"."+strconv.Itoa(i)+".Subject"))
+		fmt.Println(gjson.Get(SubjectsJSON, booklet+"."+strconv.Itoa(i)+".Start"))
+		fmt.Println(gjson.Get(SubjectsJSON, booklet+"."+strconv.Itoa(i)+".End"))
+	}
+
 }
