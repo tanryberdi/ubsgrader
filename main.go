@@ -62,6 +62,7 @@ func readConfig() {
 	plan, _ := ioutil.ReadFile("conf/subjects.json")
 	SubjectsJSON = string(plan)
 	fmt.Println(SubjectsJSON)
+
 	//err = json.Unmarshal(plan, &data)
 	//check(err)
 	//fmt.Println(data)
