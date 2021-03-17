@@ -61,6 +61,7 @@ func readConfig() {
 	byteValue, _ := ioutil.ReadAll(jsonFile)
 	json.Unmarshal(byteValue, &answers)
 
+	// get any values from subjects.json file using gjson library
 	plan, _ := ioutil.ReadFile("conf/subjects.json")
 	SubjectsJSON = string(plan)
 	fmt.Println(SubjectsJSON)
