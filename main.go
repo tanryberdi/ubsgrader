@@ -21,6 +21,17 @@ var answers Answers // All correct answers that taken from answers.json file
 var table [99][30][50][2][100]int
 
 /*
+	table of all positions for all question for each student
+	1-dimension entrance_year
+	2-dimension class_letter; A=1, B=2, C=2 and etc...
+	3-dimension order_id_student in a class
+	4-dimension booklet_number A=0, B=1
+	5-dimension situation for each subject id from subjects.json file;
+	6-dimension situation for each task id for subjects; 0 = False, 1 = True, 2 = Unsigned
+*/
+var table_subjects [99][30][50][2][20][20]int
+
+/*
 	table of points all students according to the checked papers
 	1-dimension entrance_year
 	2-dimension class_letter; A=1, B=2, C=2 and etc...

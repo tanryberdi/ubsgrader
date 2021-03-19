@@ -58,10 +58,19 @@ func controlTask(st string) {
 	num_of_subjects := gjson.Get(SubjectsJSON, booklet+".#")
 
 	for i := 0; i < int(num_of_subjects.Int()); i++ {
-		fmt.Println("Subject ", i)
-		fmt.Println(gjson.Get(SubjectsJSON, booklet+"."+strconv.Itoa(i)+".Subject"))
-		fmt.Println(gjson.Get(SubjectsJSON, booklet+"."+strconv.Itoa(i)+".Start"))
-		fmt.Println(gjson.Get(SubjectsJSON, booklet+"."+strconv.Itoa(i)+".End"))
-	}
+		//fmt.Println("Subject ", i)
+		//fmt.Println(gjson.Get(SubjectsJSON, booklet+"."+strconv.Itoa(i)+".Subject"))
+		//fmt.Println(gjson.Get(SubjectsJSON, booklet+"."+strconv.Itoa(i)+".Start"))
+		//fmt.Println(gjson.Get(SubjectsJSON, booklet+"."+strconv.Itoa(i)+".End"))
+		//subject := gjson.Get(SubjectsJSON, booklet+"."+strconv.Itoa(i)+".Subject")
+		start := gjson.Get(SubjectsJSON, booklet+"."+strconv.Itoa(i)+".Start")
+		end := gjson.Get(SubjectsJSON, booklet+"."+strconv.Itoa(i)+".End")
+		//fmt.Println(start, " ", end)
 
+		for j := int(start.Int()); j <= int(end.Int()); j++ {
+			//fmt.Println(j)
+			table_subjects[entrance_year][class_letter][order_id_student][booklet_number][i][j-int(start.Int())+1] = table[entrance_year][class_letter][order_id_student][booklet_number][j]
+		}
+
+	}
 }
