@@ -71,4 +71,15 @@ func controlTask(st string) {
 			table_subjects[entrance_year][class_letter][order_id_student][booklet_number][i][j-int(start.Int())+1] = table[entrance_year][class_letter][order_id_student][booklet_number][j]
 		}
 	}
+
+	// printing task situations according to the subjects
+	for i := 0; i < int(num_of_subjects.Int()); i++ {
+		start := gjson.Get(SubjectsJSON, booklet+"."+strconv.Itoa(i)+".Start")
+		end := gjson.Get(SubjectsJSON, booklet+"."+strconv.Itoa(i)+".End")
+		for j := 1; j <= int(end.Int())-int(start.Int())+1; j++ {
+			fmt.Print(table_subjects[entrance_year][class_letter][order_id_student][booklet_number][i][j], " ")
+		}
+		fmt.Println("---")
+	}
+
 }
