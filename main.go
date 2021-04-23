@@ -10,6 +10,7 @@ import (
 
 var nline int       // number of line, it is number of students
 var answers Answers // All correct answers that taken from answers.json file
+
 /*
 	table of all positions for all question for each student
 	1-dimension entrance_year
@@ -29,7 +30,7 @@ var table [99][30][50][2][100]int
 	5-dimension situation for each subject id from subjects.json file;
 	6-dimension situation for each task id for subjects; 0 = False, 1 = True, 2 = Unsigned
 */
-var table_subjects [99][30][50][2][20][20]int
+var tableSubjects [99][30][50][2][20][20]int
 
 /*
 	table of points all students according to the checked papers
