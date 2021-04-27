@@ -8,8 +8,9 @@ import (
 	"os"
 )
 
-var nline int                // number of line, it is number of students
-var answers Answers          // All correct answers that taken from answers.json file
+var nline int       // number of line, it is number of students
+var answers Answers // All correct answers that taken from answers.json file
+
 var isEntranceYear [100]int  // Entrance Year is absent or not? 0 and 1
 var isClassLetter [30]int    // Class Letter is absent or not? 0 and 1
 var isOrderIdStudent [50]int // Order id student is absent or not? 0 and 1
