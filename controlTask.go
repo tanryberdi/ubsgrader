@@ -50,7 +50,7 @@ func controlTask(st string) {
 	}
 	points[entranceYear][classLetter][orderIdStudent][bookletNumber] = float32(tr) - (float32(fls) * .25)
 
-	fmt.Println(tr, " ", fls, " ", unsgn)
+	fmt.Println("True =", tr, "False =", fls, "Unsigned =", unsgn)
 	fmt.Println("Table testing...", table[entranceYear][classLetter][orderIdStudent][bookletNumber][1:51])
 	fmt.Println("Point of student ", points[entranceYear][classLetter][orderIdStudent][bookletNumber])
 
