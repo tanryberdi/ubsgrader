@@ -18,6 +18,9 @@ func controlTask(st string) {
 	bookletNumber := int(a[6] - 65)                                // Booklet A or B? A=0, B=1  -> for each student
 	classLetter, _ := strconv.Atoi(string(a[2]) + string(a[3]))    // class letter ABCD, A=1, B=2, C=3, ...
 	orderIdStudent, _ := strconv.Atoi(string(a[4]) + string(a[5])) // order of each student in a class
+
+	hasStudent[entranceYear][classLetter][orderIdStudent][bookletNumber] = true
+
 	fmt.Println("Entrance year --->", entranceYear)
 	fmt.Println("class_letter --->", classLetter)
 	fmt.Println("Order_id_student ---> ", orderIdStudent)

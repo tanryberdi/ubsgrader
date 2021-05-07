@@ -12,6 +12,15 @@ var nline int       // number of line, it is number of students
 var answers Answers // All correct answers that taken from answers.json file
 
 /*
+	table of all students that help to control student has or not
+	1-dimension entrance_year
+	2-dimension class_letter; A=1, B=2, C=2 and etc...
+	3-dimension order_id_student in a class
+	4-dimension booklet_number A=0, B=1
+*/
+var hasStudent [99][30][50][2]bool
+
+/*
 	table of all positions for all question for each student
 	1-dimension entrance_year
 	2-dimension class_letter; A=1, B=2, C=2 and etc...
@@ -108,4 +117,6 @@ func main() {
 
 	fmt.Println("Reading data from *.txt files ...")
 	readData()
+
+	printStudents()
 }
