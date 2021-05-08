@@ -1,12 +1,12 @@
 {
     "Answers" : [
         {
-            "YearBooklet" : "21A",
-            "Correct" : "ABCDABCDABCDABCDABCDABCDABCDABCDABCDABCDABCDABAAAA"
+            "YearBooklet" : "16A",
+            "Correct" : "AACBABDACAACAACACCBBAABBDBCCDAAAACDBCADABDBACCBDAAADCBAABCCDABCBCCADBCBCCBC"
         },
         {
-            "YearBooklet" : "21B",
-            "Correct" : "ABCDABCDABCDABCDABCDABCDABCDABCDABCDABCDABCDABCDAB"
+            "YearBooklet" : "16B",
+            "Correct" : "AACBABDACAACAACACCBBAABBDBCCDAAAACDBCADABDBACCBDAAADCBAABCCDABCBCCADBCBCCBC"
         }
     ]
 }

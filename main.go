@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	"strings"
 )
 
 var nline int       // number of line, it is number of students
@@ -103,7 +104,7 @@ func readData() {
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
 		line := scanner.Text()
-		controlTask(line)
+		controlTask(strings.TrimSpace(line))
 		nline++
 	}
 
