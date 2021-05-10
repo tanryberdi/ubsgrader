@@ -1,56 +1,106 @@
 {
-    "21A" : [
+    "16A" : [
         {
-            "Subject" : "Chemistry",
+            "Subject" : "Math",
             "Start" : 1,
             "End" : 10
         },
         {
             "Subject" : "Biology",
             "Start" : 11,
-            "End" : 20
+            "End" : 15
+        },
+        {
+            "Subject" : "Informatics",
+            "Start" : 16,
+            "End" : 25
         },
         {
             "Subject" : "English",
-            "Start" : 21,
-            "End" : 30
+            "Start" : 26,
+            "End" : 35
         },
         {
-            "Subject" : "History",
-            "Start" : 31,
+            "Subject" : "Turkmen",
+            "Start" : 36,
             "End" : 40
         },
         {
-            "Subject" : "Math",
+            "Subject" : "Literature",
             "Start" : 41,
-            "End" : 50
+            "End" : 45
+        },
+        {
+            "Subject" : "Russian",
+            "Start" : 46,
+            "End" : 55
+        },
+        {
+            "Subject" : "History",
+            "Start" : 56,
+            "End" : 60
+        },
+        {
+            "Subject" : "World History",
+            "Start" : 61,
+            "End" : 65
+        },
+        {
+            "Subject" : "Geography",
+            "Start" : 66,
+            "End" : 75
         }
     ],
-    "21B" : [
+    "16B" : [
         {
             "Subject" : "Math",
             "Start" : 1,
             "End" : 10
         },
         {
-            "Subject" : "History",
+            "Subject" : "Biology",
             "Start" : 11,
-            "End" : 20
+            "End" : 15
+        },
+        {
+            "Subject" : "Informatics",
+            "Start" : 16,
+            "End" : 25
         },
         {
             "Subject" : "English",
-            "Start" : 21,
-            "End" : 30
+            "Start" : 26,
+            "End" : 35
         },
         {
-            "Subject" : "Biology",
-            "Start" : 31,
+            "Subject" : "Turkmen",
+            "Start" : 36,
             "End" : 40
         },
         {
-            "Subject" : "Chemistry",
+            "Subject" : "Literature",
             "Start" : 41,
-            "End" : 50
+            "End" : 45
+        },
+        {
+            "Subject" : "Russian",
+            "Start" : 46,
+            "End" : 55
+        },
+        {
+            "Subject" : "History",
+            "Start" : 56,
+            "End" : 60
+        },
+        {
+            "Subject" : "World History",
+            "Start" : 61,
+            "End" : 65
+        },
+        {
+            "Subject" : "Geography",
+            "Start" : 66,
+            "End" : 75
         }
     ]
 }
