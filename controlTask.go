@@ -54,7 +54,7 @@ func controlTask(st string) {
 	points[entranceYear][classLetter][orderIdStudent][bookletNumber] = float32(tr) - (float32(fls) * .25)
 
 	fmt.Println("True =", tr, "False =", fls, "Unsigned =", unsgn)
-	fmt.Println("Table testing...", table[entranceYear][classLetter][orderIdStudent][bookletNumber][1:len(a)-7])
+	fmt.Println("Table testing...", table[entranceYear][classLetter][orderIdStudent][bookletNumber][1:len(a)-6])
 	fmt.Println("Point of student ", points[entranceYear][classLetter][orderIdStudent][bookletNumber])
 
 	// Number of divided subjects according to the booklet
