@@ -6,6 +6,7 @@ import (
 
 func printStudents() {
 
+	q := 0
 	// Print results of students according to the entrance year
 	fmt.Println("Print results of students according to the entrance year")
 	for i := 1; i < 99; i++ { // for entrance year
@@ -14,7 +15,8 @@ func printStudents() {
 				for k := 1; k < 49; k++ { // for order id student
 					for l := 0; l < 2; l++ { // for booklet number
 						if hasStudent[i][j][k][l] {
-							fmt.Println("Student ", i, " ", j, " ", k, " ", l, " ", points[i][j][k][l])
+							q++
+							fmt.Println(q, "-> Student ", i, " ", j, " ", k, " ", l, " ", points[i][j][k][l])
 						}
 					}
 				}
@@ -23,6 +25,7 @@ func printStudents() {
 	}
 	fmt.Println("printing ended...")
 
+	q = 0
 	// Print results of students according to the class letter with a entrance year
 	fmt.Println("Print results of students according to the class letter with a entrance year")
 	for i := 1; i < 99; i++ { // for entrance year
@@ -32,7 +35,8 @@ func printStudents() {
 					for k := 1; k < 49; k++ { // for order id student
 						for l := 0; l < 2; l++ { // for booklet number
 							if hasStudent[i][j][k][l] {
-								fmt.Println("Student ", i, " ", j, " ", k, " ", l, " ", points[i][j][k][l])
+								q++
+								fmt.Println(q, "-> Student ", i, " ", j, " ", k, " ", l, " ", points[i][j][k][l])
 							}
 						}
 					}
