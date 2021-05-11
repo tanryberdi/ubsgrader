@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"strconv"
 
 	"github.com/tidwall/gjson"
@@ -20,11 +19,16 @@ func controlTask(st string) {
 	orderIdStudent, _ := strconv.Atoi(string(a[4]) + string(a[5])) // order of each student in a class
 
 	hasStudent[entranceYear][classLetter][orderIdStudent][bookletNumber] = true
+	hasEntranceYear[entranceYear] = true
+	hasClassLetter[entranceYear][classLetter] = true
 
-	fmt.Println("Entrance year --->", entranceYear)
-	fmt.Println("class_letter --->", classLetter)
-	fmt.Println("Order_id_student ---> ", orderIdStudent)
-	fmt.Println("Booklet_number --->", bookletNumber)
+	/*
+		// This Println section is commented :D
+		fmt.Println("Entrance year --->", entranceYear)
+		fmt.Println("class_letter --->", classLetter)
+		fmt.Println("Order_id_student ---> ", orderIdStudent)
+		fmt.Println("Booklet_number --->", bookletNumber)
+	*/
 
 	for i := 0; i < len(answers.Answers); i++ {
 		if answers.Answers[i].YearBooklet == booklet {
@@ -53,9 +57,12 @@ func controlTask(st string) {
 	}
 	points[entranceYear][classLetter][orderIdStudent][bookletNumber] = float32(tr) - (float32(fls) * .25)
 
-	fmt.Println("True =", tr, "False =", fls, "Unsigned =", unsgn)
-	fmt.Println("Table testing...", table[entranceYear][classLetter][orderIdStudent][bookletNumber][1:len(a)-6])
-	fmt.Println("Point of student ", points[entranceYear][classLetter][orderIdStudent][bookletNumber])
+	/*
+		// This Println section is commented :D
+		fmt.Println("True =", tr, "False =", fls, "Unsigned =", unsgn)
+		fmt.Println("Table testing...", table[entranceYear][classLetter][orderIdStudent][bookletNumber][1:len(a)-6])
+		fmt.Println("Point of student ", points[entranceYear][classLetter][orderIdStudent][bookletNumber])
+	*/
 
 	// Number of divided subjects according to the booklet
 	num_of_subjects := gjson.Get(SubjectsJSON, booklet+".#")
@@ -75,13 +82,15 @@ func controlTask(st string) {
 		}
 	}
 
-	// printing task situations according to the subjects
-	for i := 0; i < int(num_of_subjects.Int()); i++ {
-		start := gjson.Get(SubjectsJSON, booklet+"."+strconv.Itoa(i)+".Start")
-		end := gjson.Get(SubjectsJSON, booklet+"."+strconv.Itoa(i)+".End")
-		for j := 1; j <= int(end.Int())-int(start.Int())+1; j++ {
-			fmt.Print(tableSubjects[entranceYear][classLetter][orderIdStudent][bookletNumber][i][j], " ")
+	/*
+		// printing task situations according to the subjects
+		for i := 0; i < int(num_of_subjects.Int()); i++ {
+			start := gjson.Get(SubjectsJSON, booklet+"."+strconv.Itoa(i)+".Start")
+			end := gjson.Get(SubjectsJSON, booklet+"."+strconv.Itoa(i)+".End")
+			for j := 1; j <= int(end.Int())-int(start.Int())+1; j++ {
+				fmt.Print(tableSubjects[entranceYear][classLetter][orderIdStudent][bookletNumber][i][j], " ")
+			}
+			fmt.Println("---")
 		}
-		fmt.Println("---")
-	}
+	*/
 }

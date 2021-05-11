@@ -13,6 +13,16 @@ var nline int       // number of line, it is number of students
 var answers Answers // All correct answers that taken from answers.json file
 
 /*
+	table of each entrance year to check present or not
+*/
+var hasEntranceYear [99]bool
+
+/*
+	table of each class letter with entrance year
+*/
+var hasClassLetter [99][30]bool
+
+/*
 	table of all students that help to control student has or not
 	1-dimension entrance_year
 	2-dimension class_letter; A=1, B=2, C=2 and etc...
@@ -113,10 +123,10 @@ func readData() {
 }
 
 func main() {
-	fmt.Println("Reading configurations from config files ...")
+	//fmt.Println("Reading configurations from config files ...")
 	readConfig()
 
-	fmt.Println("Reading data from *.txt files ...")
+	//fmt.Println("Reading data from *.txt files ...")
 	readData()
 
 	printStudents()
