@@ -9,18 +9,10 @@ import (
 	"strings"
 )
 
-var nline int       // number of line, it is number of students
-var answers Answers // All correct answers that taken from answers.json file
-
-/*
-	table of each entrance year to check present or not
-*/
-var hasEntranceYear [99]bool
-
-/*
-	table of each class letter with entrance year
-*/
-var hasClassLetter [99][30]bool
+var nline int                   // number of line, it is number of students
+var answers Answers             // All correct answers that taken from answers.json file
+var hasEntranceYear [99]bool    // table of each entrance year to check present or not
+var hasClassLetter [99][30]bool // table of each class letter with entrance year
 
 /*
 	table of conditions ofall students that answered TRUE, FALSE or UNSIGNED
