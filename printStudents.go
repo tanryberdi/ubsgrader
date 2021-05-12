@@ -16,7 +16,9 @@ func printStudents() {
 					for l := 0; l < 2; l++ { // for booklet number
 						if hasStudent[i][j][k][l] {
 							q++
-							fmt.Println(q, "-> Student ", i, " ", j, " ", k, " ", l, " ", points[i][j][k][l])
+							fmt.Println(q, "-> Student ", i, " ", j, " ", k, " ", l, " ",
+								conditionsOfAllStudents[i][j][k][l][1], conditionsOfAllStudents[i][j][k][l][0],
+								conditionsOfAllStudents[i][j][k][l][2], points[i][j][k][l])
 						}
 					}
 				}

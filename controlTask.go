@@ -36,26 +36,24 @@ func controlTask(st string) {
 		}
 	}
 
-	tr := 0    // Number of true answers for each student
-	fls := 0   // Number of false answers for each student
-	unsgn := 0 // Number of unsigned answers for each student
-
 	// controlling each questions for each student
 	for i := 7; i < len(a); i++ {
 		if string(a[i]) == string(" ") {
-			unsgn++
+			conditionsOfAllStudents[entranceYear][classLetter][orderIdStudent][bookletNumber][2]++
 			table[entranceYear][classLetter][orderIdStudent][bookletNumber][i-6] = 2
 		} else {
 			if string(a[i]) == string(correct[i-7]) {
-				tr++
+				conditionsOfAllStudents[entranceYear][classLetter][orderIdStudent][bookletNumber][1]++
 				table[entranceYear][classLetter][orderIdStudent][bookletNumber][i-6] = 1
 			} else {
-				fls++
+				conditionsOfAllStudents[entranceYear][classLetter][orderIdStudent][bookletNumber][0]++
 				table[entranceYear][classLetter][orderIdStudent][bookletNumber][i-6] = 0
 			}
 		}
 	}
-	points[entranceYear][classLetter][orderIdStudent][bookletNumber] = float32(tr) - (float32(fls) * .25)
+	points[entranceYear][classLetter][orderIdStudent][bookletNumber] =
+		float32(conditionsOfAllStudents[entranceYear][classLetter][orderIdStudent][bookletNumber][1]) -
+			(float32(conditionsOfAllStudents[entranceYear][classLetter][orderIdStudent][bookletNumber][0]) * .25)
 
 	/*
 		// This Println section is commented :D

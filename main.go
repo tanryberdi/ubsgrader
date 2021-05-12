@@ -23,6 +23,19 @@ var hasEntranceYear [99]bool
 var hasClassLetter [99][30]bool
 
 /*
+	table of conditions ofall students that answered TRUE, FALSE or UNSIGNED
+	1-dimension entrance_year
+	2-dimension class_letter; A=1, B=2, C=2 and etc...
+	3-dimension order_id_student in a class
+	4-dimension booklet_number A=0, B=1
+	5-dimension is number of answers that was TRUE, FALSE or UNSIGNED;
+		[0] is a number of false answers;
+		[1] is a number of true answers;
+		[2] is a number of unsigned answers;
+*/
+var conditionsOfAllStudents [99][30][50][2][3]int
+
+/*
 	table of all students that help to control student has or not
 	1-dimension entrance_year
 	2-dimension class_letter; A=1, B=2, C=2 and etc...
