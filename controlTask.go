@@ -64,6 +64,8 @@ func controlTask(st string) {
 
 	// Number of divided subjects according to the booklet
 	num_of_subjects := gjson.Get(SubjectsJSON, booklet+".#")
+	numOfSubjects[entranceYear][bookletNumber] = int(num_of_subjects.Int())
+	//fmt.Println("number of subjects ->", numOfSubjects[entranceYear][bookletNumber])
 
 	for i := 0; i < int(num_of_subjects.Int()); i++ {
 		//fmt.Println(gjson.Get(SubjectsJSON, booklet+"."+strconv.Itoa(i)+".Subject"))
@@ -72,6 +74,9 @@ func controlTask(st string) {
 		//subject := gjson.Get(SubjectsJSON, booklet+"."+strconv.Itoa(i)+".Subject")
 		start := gjson.Get(SubjectsJSON, booklet+"."+strconv.Itoa(i)+".Start")
 		end := gjson.Get(SubjectsJSON, booklet+"."+strconv.Itoa(i)+".End")
+
+		subjectsLimit[entranceYear][bookletNumber][i][0] = int(start.Int())
+		subjectsLimit[entranceYear][bookletNumber][i][1] = int(end.Int())
 		//fmt.Println(start, " ", end)
 
 		for j := int(start.Int()); j <= int(end.Int()); j++ {
@@ -91,4 +96,5 @@ func controlTask(st string) {
 			fmt.Println("---")
 		}
 	*/
+
 }

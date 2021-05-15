@@ -15,6 +15,22 @@ var hasEntranceYear [99]bool    // table of each entrance year to check present 
 var hasClassLetter [99][30]bool // table of each class letter with entrance year
 
 /*
+	number of subjects according to the entrance year
+	1-dimension entrance_year
+	2-dimension class_letter
+*/
+var numOfSubjects [99][2]int
+
+/*
+	starting point and ending point for each subjects
+	1-dimension entrance_year
+	2-dimension class_letter; A=1, B=2, C=2 and etc...
+	3-dimension number of subjects
+	4-dimension starting and ending point; 0-starting, 1-ending point
+*/
+var subjectsLimit [99][2][20][2]int
+
+/*
 	table of conditions ofall students that answered TRUE, FALSE or UNSIGNED
 	1-dimension entrance_year
 	2-dimension class_letter; A=1, B=2, C=2 and etc...
