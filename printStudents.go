@@ -4,6 +4,8 @@ import (
 	"fmt"
 )
 
+// must create function that will calculate numbers (true, false and unsigned) of each student.
+
 func printStudents() {
 
 	q := 0
