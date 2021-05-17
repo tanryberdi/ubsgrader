@@ -2,12 +2,16 @@ package main
 
 import (
 	"fmt"
+	"strconv"
+
+	"github.com/tidwall/gjson"
 )
 
 //fmt.Println("Table testing...", table[entranceYear][classLetter][orderIdStudent][bookletNumber][1:len(a)-6])
 // must create function that will calculate numbers (true, false and unsigned) of each student.
-func calcTrFl(entranceY int, classL int, orderS int, bookN int, strP int, endP int) (int, int, int) {
+func calcTrFl(entranceY int, classL int, orderS int, bookN int, strP int, endP int) (int, int, int, float32) {
 
+	//var point float32
 	tr := 0
 	fls := 0
 	unsgnd := 0
@@ -27,7 +31,9 @@ func calcTrFl(entranceY int, classL int, orderS int, bookN int, strP int, endP i
 
 	}
 
-	return tr, fls, unsgnd
+	point := float32(tr) - float32(fls)*percentage
+
+	return tr, fls, unsgnd, point
 
 }
 
@@ -48,6 +54,10 @@ func printStudents() {
 							for ii := 0; ii < numOfSubjects[i][l]; ii++ {
 								fmt.Println(ii, "--", subjectsLimit[i][l][ii][0], "-->", subjectsLimit[i][l][ii][1], ":", table[i][j][k][l][subjectsLimit[i][l][ii][0]:subjectsLimit[i][l][ii][1]+1])
 								fmt.Print("---> ")
+
+								subject := gjson.Get(SubjectsJSON, "16A."+strconv.Itoa(ii)+".Subject")
+								fmt.Print(subject.String(), " ")
+
 								fmt.Println(calcTrFl(i, j, k, l, subjectsLimit[i][l][ii][0], subjectsLimit[i][l][ii][1]))
 
 							}
