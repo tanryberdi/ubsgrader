@@ -53,7 +53,7 @@ func controlTask(st string) {
 	}
 	points[entranceYear][classLetter][orderIdStudent][bookletNumber] =
 		float32(conditionsOfAllStudents[entranceYear][classLetter][orderIdStudent][bookletNumber][1]) -
-			(float32(conditionsOfAllStudents[entranceYear][classLetter][orderIdStudent][bookletNumber][0]) * .25)
+			(float32(conditionsOfAllStudents[entranceYear][classLetter][orderIdStudent][bookletNumber][0]) * percentage)
 
 	/*
 		// This Println section is commented :D

@@ -7,12 +7,15 @@ import (
 	"io/ioutil"
 	"os"
 	"strings"
+
+	"github.com/tidwall/gjson"
 )
 
 var nline int                   // number of line, it is number of students
 var answers Answers             // All correct answers that taken from answers.json file
 var hasEntranceYear [99]bool    // table of each entrance year to check present or not
 var hasClassLetter [99][30]bool // table of each class letter with entrance year
+var percentage float32          // Percentage of wrong answers canceling correct answers
 
 /*
 	number of subjects according to the entrance year
@@ -117,12 +120,9 @@ func readConfig() {
 	SubjectsJSON = string(plan)
 	//fmt.Println(SubjectsJSON)
 
-	/*
-		for i := 0; i < len(answers.Answers); i++ {
-			fmt.Println("Year Booklet: " + answers.Answers[i].YearBooklet)
-			fmt.Println("Correct: " + answers.Answers[i].Correct)
-		}
-	*/
+	percent := gjson.Get(SubjectsJSON, "percent")
+	percentage = float32(percent.Float())
+	fmt.Println(percentage)
 }
 
 // reading data (*.txt) file
