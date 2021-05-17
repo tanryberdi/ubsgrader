@@ -122,7 +122,7 @@ func readConfig() {
 
 	percent := gjson.Get(SubjectsJSON, "percent")
 	percentage = float32(percent.Float())
-	fmt.Println(percentage)
+	//fmt.Println(percentage)
 }
 
 // reading data (*.txt) file
