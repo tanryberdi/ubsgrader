@@ -50,7 +50,7 @@ func getBooklet(entranceY int, bookN int) string {
 
 func printStudents() {
 
-	q := 0
+	q := 0 // Number of student
 	// Print results of students according to the entrance year
 	fmt.Println("Print results of students according to the entrance year")
 	for i := 1; i < 99; i++ { // for entrance year
