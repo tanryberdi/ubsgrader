@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"strconv"
 
+	"github.com/360EntSecGroup-Skylar/excelize/v2"
 	"github.com/tidwall/gjson"
 )
 
@@ -55,6 +56,11 @@ func printStudents() {
 	fmt.Println("Print results of students according to the entrance year")
 	for i := 1; i < 99; i++ { // for entrance year
 		if hasEntranceYear[i] {
+
+			f := excelize.NewFile()
+			f.SetCellValue("Sheet1", "B2", 100)
+			f.SetCellValue("Sheet1", "B3", "Hello World!")
+
 			for j := 1; j < 29; j++ { // for class letter
 				for k := 1; k < 49; k++ { // for order id student
 					for l := 0; l < 2; l++ { // for booklet number
@@ -78,6 +84,10 @@ func printStudents() {
 					}
 				}
 			}
+
+			err := f.SaveAs("Result.xlsx")
+			check(err)
+
 		}
 	}
 	fmt.Println("printing ended...")
