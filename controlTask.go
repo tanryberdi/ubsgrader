@@ -6,24 +6,11 @@ import (
 
 	"github.com/tidwall/gjson"
 
-	"database/sql"
-
 	_ "github.com/go-sql-driver/mysql"
 )
 
-func connectdb() {
-	var err error
-	db, err = sql.Open("mysql",
-		"root:qwertyQWERTY2020!@/grader")
-	check(err)
-	//defer db.Close()
-
-}
-
 // control every line of data (*.txt) file
 func controlTask(st string) {
-
-	connectdb()
 
 	var correct string // Correct answer of controlled student
 

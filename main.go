@@ -147,7 +147,11 @@ func readData() {
 func main() {
 
 	// close the db connection
-	//defer db.Close()
+	var err error
+	db, err = sql.Open("mysql",
+		"root:qwertyQWERTY2020!@/grader")
+	check(err)
+	defer db.Close()
 
 	//fmt.Println("Reading configurations from config files ...")
 	readConfig()
