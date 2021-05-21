@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/360EntSecGroup-Skylar/excelize/v2"
 	"github.com/tidwall/gjson"
 )
 
@@ -57,13 +56,23 @@ func printStudents() {
 	for i := 1; i < 99; i++ { // for entrance year
 		if hasEntranceYear[i] {
 
-			f := excelize.NewFile()
-			f.SetCellValue("Sheet1", "B2", 100)
-			f.SetCellValue("Sheet1", "B3", "Hello World!")
+			/*
+				f := excelize.NewFile()
+				f.SetCellValue("Sheet1", "A1", "T/b")
+				f.SetCellValue("Sheet1", "B1", "Kod")
+				f.SetCellValue("Sheet1", "C1", "Synpy")
+				f.SetCellValue("Sheet1", "D1", "True")
+				f.SetCellValue("Sheet1", "E1", "False")
+				f.SetCellValue("Sheet1", "F1", "Point")
+
+				ch := "F1"
+				fmt.Println(string(ch[0] + 1))
+			*/
 
 			for j := 1; j < 29; j++ { // for class letter
 				for k := 1; k < 49; k++ { // for order id student
 					for l := 0; l < 2; l++ { // for booklet number
+
 						if hasStudent[i][j][k][l] {
 							q++
 							fmt.Println(q, "-> Student ", i, " ", j, " ", k, " ", l, " ", conditionsOfAllStudents[i][j][k][l][1], conditionsOfAllStudents[i][j][k][l][0], conditionsOfAllStudents[i][j][k][l][2], points[i][j][k][l])
@@ -85,8 +94,10 @@ func printStudents() {
 				}
 			}
 
-			err := f.SaveAs("Result.xlsx")
-			check(err)
+			/*
+				err := f.SaveAs("Result.xlsx")
+				check(err)
+			*/
 
 		}
 	}
