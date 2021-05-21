@@ -4,10 +4,25 @@ import (
 	"strconv"
 
 	"github.com/tidwall/gjson"
+
+	"database/sql"
+
+	_ "github.com/go-sql-driver/mysql"
 )
+
+// function to connect db
+func connectdb() {
+	db, err := sql.Open("mysql",
+		"root:qwertyQWERTY2020!@/grader")
+	check(err)
+	defer db.Close()
+}
 
 // control every line of data (*.txt) file
 func controlTask(st string) {
+
+	connectdb() // connect to the db
+
 	var correct string // Correct answer of controlled student
 
 	a := []rune(st)                                       // split string (st) into characters
