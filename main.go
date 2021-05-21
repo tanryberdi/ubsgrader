@@ -20,9 +20,8 @@ var percentage float32          // Percentage of wrong answers canceling correct
 /*
 	number of subjects according to the entrance year
 	1-dimension entrance_year
-	2-dimension class_letter
 */
-var numOfSubjects [99][2]int
+var numOfSubjects [99]int
 
 /*
 	starting point and ending point for each subjects

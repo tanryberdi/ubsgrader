@@ -64,7 +64,7 @@ func controlTask(st string) {
 
 	// Number of divided subjects according to the booklet
 	num_of_subjects := gjson.Get(SubjectsJSON, booklet+".#")
-	numOfSubjects[entranceYear][bookletNumber] = int(num_of_subjects.Int())
+	numOfSubjects[entranceYear] = int(num_of_subjects.Int())
 	//fmt.Println("number of subjects ->", numOfSubjects[entranceYear][bookletNumber])
 
 	for i := 0; i < int(num_of_subjects.Int()); i++ {

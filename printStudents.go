@@ -76,7 +76,7 @@ func printStudents() {
 							q++
 							fmt.Println(q, "-> Student ", i, " ", j, " ", k, " ", l, " ", conditionsOfAllStudents[i][j][k][l][1], conditionsOfAllStudents[i][j][k][l][0], conditionsOfAllStudents[i][j][k][l][2], points[i][j][k][l])
 
-							for ii := 0; ii < numOfSubjects[i][l]; ii++ {
+							for ii := 0; ii < numOfSubjects[i]; ii++ {
 								fmt.Println(ii, "--", subjectsLimit[i][l][ii][0], "-->", subjectsLimit[i][l][ii][1], ":", table[i][j][k][l][subjectsLimit[i][l][ii][0]:subjectsLimit[i][l][ii][1]+1])
 								fmt.Print("---> ")
 
