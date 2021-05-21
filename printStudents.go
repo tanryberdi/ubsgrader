@@ -93,7 +93,7 @@ func printStudents() {
 				}
 			}
 
-			err := f.SaveAs("Result.xlsx")
+			err := f.SaveAs("Result" + strconv.Itoa(i) + ".xlsx")
 			check(err)
 
 		}
