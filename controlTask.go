@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"strconv"
 
 	"github.com/tidwall/gjson"
@@ -38,10 +39,15 @@ func controlTask(st string) {
 	hasEntranceYear[entranceYear] = true
 	hasClassLetter[entranceYear][classLetter] = true
 
+	// Insert each student to the students table
 	stmt, err := db.Prepare("INSERT INTO students(entrance_year, class_letter, order_id_student, booklet_number) VALUES(?,?,?,?)")
 	check(err)
-	_, err = stmt.Exec(entranceYear, classLetter, orderIdStudent, bookletNumber)
+	res, err := stmt.Exec(entranceYear, classLetter, orderIdStudent, bookletNumber)
 	check(err)
+	lastId, err := res.LastInsertId()
+	check(err)
+	fmt.Println(lastId)
+	// end of insertion
 
 	/*
 		// This Println section is commented :D

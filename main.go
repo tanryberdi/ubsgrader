@@ -147,7 +147,7 @@ func readData() {
 func main() {
 
 	// close the db connection
-	defer db.Close()
+	//defer db.Close()
 
 	//fmt.Println("Reading configurations from config files ...")
 	readConfig()
