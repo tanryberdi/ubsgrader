@@ -15,7 +15,7 @@ func connectdb() {
 	db, err = sql.Open("mysql",
 		"root:qwertyQWERTY2020!@/grader")
 	check(err)
-	defer db.Close()
+	//defer db.Close()
 
 }
 
@@ -37,6 +37,11 @@ func controlTask(st string) {
 	hasStudent[entranceYear][classLetter][orderIdStudent][bookletNumber] = true
 	hasEntranceYear[entranceYear] = true
 	hasClassLetter[entranceYear][classLetter] = true
+
+	stmt, err := db.Prepare("INSERT INTO students(entrance_year, class_letter, order_id_student, booklet_number) VALUES(?,?,?,?)")
+	check(err)
+	_, err = stmt.Exec(entranceYear, classLetter, orderIdStudent, bookletNumber)
+	check(err)
 
 	/*
 		// This Println section is commented :D
