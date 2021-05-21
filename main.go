@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"database/sql"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -11,6 +12,7 @@ import (
 	"github.com/tidwall/gjson"
 )
 
+var db *sql.DB                  // variable for db connection
 var nline int                   // number of line, it is number of students
 var answers Answers             // All correct answers that taken from answers.json file
 var hasEntranceYear [99]bool    // table of each entrance year to check present or not
