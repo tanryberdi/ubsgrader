@@ -148,8 +148,7 @@ func main() {
 
 	// close the db connection
 	var err error
-	db, err = sql.Open("mysql",
-		"root:qwertyQWERTY2020!@/grader")
+	db, err = sql.Open("mysql", "root:qwertyQWERTY2020!@/grader")
 	check(err)
 	defer db.Close()
 
