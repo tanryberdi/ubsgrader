@@ -56,22 +56,6 @@ func printStudents() {
 	for i := 1; i < 99; i++ { // for entrance year
 		if hasEntranceYear[i] {
 
-			/*
-				f := excelize.NewFile()
-				f.SetCellValue("Sheet1", "A1", "T/b")
-				f.SetCellValue("Sheet1", "B1", "Kod")
-				f.SetCellValue("Sheet1", "C1", "Synpy")
-				f.SetCellValue("Sheet1", "D1", "True")
-				f.SetCellValue("Sheet1", "E1", "False")
-				f.SetCellValue("Sheet1", "F1", "Point")
-
-				ch := "G1"
-				fmt.Println(string(ch[0] + 1))
-				for j:=0; j<numOfSubjects[i]; j++ {
-					f.SetCellValue("Sheet1",)
-				}
-			*/
-
 			for j := 1; j < 29; j++ { // for class letter
 				for k := 1; k < 49; k++ { // for order id student
 					for l := 0; l < 2; l++ { // for booklet number
@@ -96,36 +80,9 @@ func printStudents() {
 					}
 				}
 			}
-
-			/*
-				err := f.SaveAs("Result" + strconv.Itoa(i) + ".xlsx")
-				check(err)
-			*/
-
 		}
 	}
 	fmt.Println("printing ended...")
-	/*
-		q = 0
-		// Print results of students according to the class letter with a entrance year
-		fmt.Println("Print results of students according to the class letter with a entrance year")
-		for i := 1; i < 99; i++ { // for entrance year
-			if hasEntranceYear[i] {
-				for j := 1; j < 29; j++ { // for class letter
-					if hasClassLetter[i][j] {
-						for k := 1; k < 49; k++ { // for order id student
-							for l := 0; l < 2; l++ { // for booklet number
-								if hasStudent[i][j][k][l] {
-									q++
-									fmt.Println(q, "-> Student ", i, " ", j, " ", k, " ", l, " ", points[i][j][k][l])
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	*/
 
 	fmt.Println("Number of Students = ", nline)
 }
