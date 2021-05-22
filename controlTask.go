@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"strconv"
 
 	"github.com/tidwall/gjson"
@@ -33,7 +32,6 @@ func controlTask(st string) {
 	check(err)
 	lastId, err := res.LastInsertId()
 	check(err)
-	fmt.Println(lastId)
 	// end of insertion
 
 	/*
@@ -90,6 +88,18 @@ func controlTask(st string) {
 	num_of_subjects := gjson.Get(SubjectsJSON, booklet+".#")
 	numOfSubjects[entranceYear] = int(num_of_subjects.Int())
 	//fmt.Println("number of subjects ->", numOfSubjects[entranceYear][bookletNumber])
+
+	// Insert each booklet if there is not exist in booklets table
+	var noQuery int
+	err = db.QueryRow("select count(id) from booklets where entrance_year = ? and booklet_number = ?", entranceYear, bookletNumber).Scan(&noQuery)
+	check(err)
+	if noQuery == 0 {
+		stmt, err = db.Prepare("INSERT INTO booklets(entrance_year, booklet_number, no_subjects) VALUES(?,?,?)")
+		check(err)
+		_, err = stmt.Exec(entranceYear, bookletNumber, numOfSubjects[entranceYear])
+		check(err)
+	}
+	// end of insertion
 
 	for i := 0; i < int(num_of_subjects.Int()); i++ {
 		//fmt.Println(gjson.Get(SubjectsJSON, booklet+"."+strconv.Itoa(i)+".Subject"))
