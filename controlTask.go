@@ -69,6 +69,16 @@ func controlTask(st string) {
 		float32(conditionsOfAllStudents[entranceYear][classLetter][orderIdStudent][bookletNumber][1]) -
 			(float32(conditionsOfAllStudents[entranceYear][classLetter][orderIdStudent][bookletNumber][0]) * percentage)
 
+	// Insert points of each students to the points table
+	stmt, err = db.Prepare("INSERT INTO points(student_id, tr, fls, unsgnd, point) VALUES(?,?,?,?,?)")
+	check(err)
+	_, err = stmt.Exec(int(lastId), conditionsOfAllStudents[entranceYear][classLetter][orderIdStudent][bookletNumber][1],
+		conditionsOfAllStudents[entranceYear][classLetter][orderIdStudent][bookletNumber][0],
+		conditionsOfAllStudents[entranceYear][classLetter][orderIdStudent][bookletNumber][2],
+		points[entranceYear][classLetter][orderIdStudent][bookletNumber])
+	check(err)
+	// end of insertion
+
 	/*
 		// This Println section is commented :D
 		fmt.Println("True =", tr, "False =", fls, "Unsigned =", unsgn)
