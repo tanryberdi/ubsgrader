@@ -50,6 +50,24 @@ func getBooklet(entranceY int, bookN int) string {
 
 func printStudents() {
 
+	var (
+		studentID  int
+		entranceY  int
+		classL     int
+		orderIdStd int
+		bookletN   int
+	)
+	rows, err := db.Query("select * from students order by entrance_year")
+	check(err)
+	defer rows.Close()
+	for rows.Next() {
+		err := rows.Scan(&studentID, &entranceY, &classL, &orderIdStd, &bookletN)
+		check(err)
+		fmt.Println(studentID, entranceY, classL, orderIdStd, bookletN)
+	}
+	err = rows.Err()
+	check(err)
+
 	q := 0 // Number of student
 	// Print results of students according to the entrance year
 	fmt.Println("Print results of students according to the entrance year")
