@@ -144,6 +144,37 @@ func readData() {
 	check(err)
 }
 
+// Function that truncate all tables every time :D
+func TruncateGrader() error {
+	s := make([]string, 0)
+
+	s = append(s, "TRUNCATE TABLE booklets")
+	s = append(s, "TRUNCATE TABLE points")
+	s = append(s, "TRUNCATE TABLE students")
+	s = append(s, "TRUNCATE TABLE subjects")
+
+	// Get new Transaction. See http://golang.org/pkg/database/sql/#DB.Begin
+	txn, err := db.Begin()
+
+	check(err)
+
+	defer func() {
+		// Rollback the transaction after the function returns.
+		// If the transaction was already commited, this will do nothing.
+		_ = txn.Rollback()
+	}()
+
+	for _, q := range s {
+		// Execute the query in the transaction.
+		_, err := txn.Exec(q)
+
+		check(err)
+	}
+
+	// Commit the transaction.
+	return txn.Commit()
+}
+
 func main() {
 
 	// close the db connection
@@ -151,6 +182,16 @@ func main() {
 	db, err = sql.Open("mysql", "root:qwertyQWERTY2020!@/grader")
 	check(err)
 	defer db.Close()
+
+	err = TruncateGrader()
+	check(err)
+
+	/*
+		SELECT
+		CONCAT('TRUNCATE TABLE ',TABLE_NAME,';') AS truncateCommand
+		FROM information_schema.TABLES
+		WHERE TABLE_SCHEMA = 'YOUR_DATABASE_NAME_HERE';
+	*/
 
 	//fmt.Println("Reading configurations from config files ...")
 	readConfig()
