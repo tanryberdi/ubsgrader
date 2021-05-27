@@ -144,7 +144,7 @@ func readData() {
 	check(err)
 }
 
-// Function that truncate all tables every time :D
+// Function that truncate all tables every time for beginning :D
 func TruncateGrader() error {
 	s := make([]string, 0)
 
