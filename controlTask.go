@@ -77,6 +77,15 @@ func controlTask(st string) {
 	check(err)
 	// end of insertion
 
+	// Update student table's point field; this is point of each student
+	stmt, err = db.Prepare("update students set point=? where id=?")
+	check(err)
+
+	// execute
+	_, err = stmt.Exec(points[entranceYear][classLetter][orderIdStudent][bookletNumber], int(lastId))
+	check(err)
+	// end of update
+
 	/*
 		// This Println section is commented :D
 		fmt.Println("True =", tr, "False =", fls, "Unsigned =", unsgn)

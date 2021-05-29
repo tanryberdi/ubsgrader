@@ -57,14 +57,15 @@ func printStudents() {
 		classL     int
 		orderIdStd int
 		bookletN   int
+		point      float32
 	)
 	rows, err := db.Query("select * from students order by entrance_year")
 	check(err)
 	defer rows.Close()
 	for rows.Next() {
-		err := rows.Scan(&studentID, &entranceY, &classL, &orderIdStd, &bookletN)
+		err := rows.Scan(&studentID, &entranceY, &classL, &orderIdStd, &bookletN, &point)
 		check(err)
-		fmt.Println(studentID, entranceY, classL, orderIdStd, bookletN)
+		fmt.Println(studentID, entranceY, classL, orderIdStd, bookletN, point)
 
 		q++
 		fmt.Println(q, "-> Student ", entranceY, " ", classL, " ", orderIdStd, " ", bookletN, " ",
