@@ -186,13 +186,6 @@ func main() {
 	err = TruncateGrader()
 	check(err)
 
-	/*
-		SELECT
-		CONCAT('TRUNCATE TABLE ',TABLE_NAME,';') AS truncateCommand
-		FROM information_schema.TABLES
-		WHERE TABLE_SCHEMA = 'YOUR_DATABASE_NAME_HERE';
-	*/
-
 	//fmt.Println("Reading configurations from config files ...")
 	readConfig()
 

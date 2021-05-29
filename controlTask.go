@@ -34,14 +34,6 @@ func controlTask(st string) {
 	check(err)
 	// end of insertion
 
-	/*
-		// This Println section is commented :D
-		fmt.Println("Entrance year --->", entranceYear)
-		fmt.Println("class_letter --->", classLetter)
-		fmt.Println("Order_id_student ---> ", orderIdStudent)
-		fmt.Println("Booklet_number --->", bookletNumber)
-	*/
-
 	for i := 0; i < len(answers.Answers); i++ {
 		if answers.Answers[i].YearBooklet == booklet {
 			correct = answers.Answers[i].Correct
@@ -86,13 +78,6 @@ func controlTask(st string) {
 	check(err)
 	// end of update
 
-	/*
-		// This Println section is commented :D
-		fmt.Println("True =", tr, "False =", fls, "Unsigned =", unsgn)
-		fmt.Println("Table testing...", table[entranceYear][classLetter][orderIdStudent][bookletNumber][1:len(a)-6])
-		fmt.Println("Point of student ", points[entranceYear][classLetter][orderIdStudent][bookletNumber])
-	*/
-
 	// Number of divided subjects according to the booklet
 	num_of_subjects := gjson.Get(SubjectsJSON, booklet+".#")
 	numOfSubjects[entranceYear] = int(num_of_subjects.Int())
@@ -111,10 +96,6 @@ func controlTask(st string) {
 	// end of insertion
 
 	for i := 0; i < int(num_of_subjects.Int()); i++ {
-		//fmt.Println(gjson.Get(SubjectsJSON, booklet+"."+strconv.Itoa(i)+".Subject"))
-		//fmt.Println(gjson.Get(SubjectsJSON, booklet+"."+strconv.Itoa(i)+".Start"))
-		//fmt.Println(gjson.Get(SubjectsJSON, booklet+"."+strconv.Itoa(i)+".End"))
-		//subject := gjson.Get(SubjectsJSON, booklet+"."+strconv.Itoa(i)+".Subject")
 		start := gjson.Get(SubjectsJSON, booklet+"."+strconv.Itoa(i)+".Start")
 		end := gjson.Get(SubjectsJSON, booklet+"."+strconv.Itoa(i)+".End")
 
