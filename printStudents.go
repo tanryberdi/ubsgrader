@@ -92,7 +92,7 @@ func printStudents() {
 
 			fmt.Println(calcTrFl(entranceY, classL, orderIdStd, bookletN, subjectsLimit[entranceY][bookletN][i][0], subjectsLimit[entranceY][bookletN][i][1]))
 		}
-		fmt.Println("-----------------------------")
+		fmt.Println("------------------------------")
 
 	}
 	err = rows.Err()
