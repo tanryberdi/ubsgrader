@@ -1,0 +1,41 @@
+//package main
+
+import (
+	"fmt"
+	"strconv"
+
+	"github.com/360EntSecGroup-Skylar/excelize/v2"
+)
+
+/*
+	Function that reads datas of all student from excel file;
+	and insert to details table;
+	firstname and lastname of all students;
+*/
+func readDataFromExcel() {
+	f, err := excelize.OpenFile("ubtdb.xlsx")
+	check(err)
+
+	rows, err := f.GetRows("sheet1")
+	check(err)
+
+	for _, row := range rows {
+		entranceYear, _ := strconv.Atoi(string(row[0][0]) + string(row[0][1]))
+		classLetter, _ := strconv.Atoi(string(row[0][2]) + string(row[0][3]))
+		orderIdStudent, _ := strconv.Atoi(string(row[0][4]) + string(row[0][5]))
+
+		bookletNumber, _ := strconv.Atoi(row[4])
+		bookletNumber--
+
+		lastname := row[1]
+		firstname := row[2]
+
+		fmt.Println(entranceYear, classLetter, orderIdStudent, bookletNumber, lastname, firstname)
+
+		stmt, err := db.Prepare("INSERT INTO details(entrance_year, class_letter, order_id_student, booklet_number, lastname, firstname) VALUES(?,?,?,?,?,?)")
+		check(err)
+		_, err = stmt.Exec(entranceYear, classLetter, orderIdStudent, bookletNumber, lastname, firstname)
+		check(err)
+
+	}
+}
