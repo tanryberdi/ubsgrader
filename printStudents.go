@@ -70,12 +70,13 @@ func printStudents() {
 		var (
 			lastname string
 			firsname string
+			class    string
 		)
-		err = db.QueryRow("select lastname, firstname from details where entrance_year = ? and class_letter = ? and order_id_student = ? and booklet_number = ?", entranceY, classL, orderIdStd, bookletN).Scan(&lastname, &firsname)
+		err = db.QueryRow("select lastname, firstname, class from details where entrance_year = ? and class_letter = ? and order_id_student = ? and booklet_number = ?", entranceY, classL, orderIdStd, bookletN).Scan(&lastname, &firsname, &class)
 		check(err)
 
 		q++
-		fmt.Println(q, "-> Student ", entranceY, " ", classL, " ", orderIdStd, " ", bookletN, " ", lastname, " ", firsname, " ",
+		fmt.Println(q, "-> Student ", entranceY, " ", classL, " ", orderIdStd, " ", bookletN, " ", lastname, " ", firsname, " ", class, " ",
 			conditionsOfAllStudents[entranceY][classL][orderIdStd][bookletN][1],
 			conditionsOfAllStudents[entranceY][classL][orderIdStd][bookletN][0],
 			conditionsOfAllStudents[entranceY][classL][orderIdStd][bookletN][2],
