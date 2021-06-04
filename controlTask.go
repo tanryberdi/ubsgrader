@@ -40,21 +40,41 @@ func controlTask(st string) {
 		}
 	}
 
+	//fmt.Println("Correct : ", correct)
+	//fmt.Println("Length A is : ", len(a))
+
 	// controlling each questions for each student
-	for i := 7; i < len(a); i++ {
-		if string(a[i]) == string(" ") {
+	for i := 0; i < len(correct); i++ {
+		if string(a[i+7]) == string(" ") {
 			conditionsOfAllStudents[entranceYear][classLetter][orderIdStudent][bookletNumber][2]++
-			table[entranceYear][classLetter][orderIdStudent][bookletNumber][i-6] = 2
+			table[entranceYear][classLetter][orderIdStudent][bookletNumber][i+1] = 2
 		} else {
-			if string(a[i]) == string(correct[i-7]) {
+			if string(a[i+7]) == string(correct[i]) {
 				conditionsOfAllStudents[entranceYear][classLetter][orderIdStudent][bookletNumber][1]++
-				table[entranceYear][classLetter][orderIdStudent][bookletNumber][i-6] = 1
+				table[entranceYear][classLetter][orderIdStudent][bookletNumber][i+1] = 1
 			} else {
 				conditionsOfAllStudents[entranceYear][classLetter][orderIdStudent][bookletNumber][0]++
-				table[entranceYear][classLetter][orderIdStudent][bookletNumber][i-6] = 0
+				table[entranceYear][classLetter][orderIdStudent][bookletNumber][i+1] = 0
 			}
 		}
 	}
+	/*
+		// This is a good variant of controll
+		for i := 7; i < len(a); i++ {
+			if string(a[i]) == string(" ") {
+				conditionsOfAllStudents[entranceYear][classLetter][orderIdStudent][bookletNumber][2]++
+				table[entranceYear][classLetter][orderIdStudent][bookletNumber][i-6] = 2
+			} else {
+				if string(a[i]) == string(correct[i-7]) {
+					conditionsOfAllStudents[entranceYear][classLetter][orderIdStudent][bookletNumber][1]++
+					table[entranceYear][classLetter][orderIdStudent][bookletNumber][i-6] = 1
+				} else {
+					conditionsOfAllStudents[entranceYear][classLetter][orderIdStudent][bookletNumber][0]++
+					table[entranceYear][classLetter][orderIdStudent][bookletNumber][i-6] = 0
+				}
+			}
+		}
+	*/
 	points[entranceYear][classLetter][orderIdStudent][bookletNumber] =
 		float32(conditionsOfAllStudents[entranceYear][classLetter][orderIdStudent][bookletNumber][1]) -
 			(float32(conditionsOfAllStudents[entranceYear][classLetter][orderIdStudent][bookletNumber][0]) * percentage)
