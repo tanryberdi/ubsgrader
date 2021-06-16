@@ -195,4 +195,6 @@ func main() {
 	printStudents()
 
 	//readDataFromExcel()
+
+	outputHTML()
 }
