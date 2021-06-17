@@ -6,13 +6,9 @@ import (
 )
 
 type MySchoolStudent struct {
-	FirstName      string
-	LastName       string
-	Class          string
-	EntranceYear   int
-	ClassLetter    int
-	OrderIdStudent int
-	BookletNumber  int
+	FirstName string
+	LastName  string
+	Class     string
 }
 
 type MySchool struct {
