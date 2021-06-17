@@ -6,9 +6,13 @@ import (
 )
 
 type MySchoolStudent struct {
-	FirstName string
-	LastName  string
-	Class     string
+	FirstName      string
+	LastName       string
+	Class          string
+	EntranceYear   int
+	ClassLetter    int
+	OrderIdStudent int
+	BookletNumber  int
 }
 
 type MySchool struct {
@@ -25,13 +29,25 @@ func outputHTML() {
 	tmpl := template.Must(template.ParseFiles("layout.html"))
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 
-		student1 := MySchoolStudent{FirstName: "Amanow", LastName: "Aman", Class: "11A"}
-
 		students := []MySchoolStudent{}
 
 		school := MySchool{students}
 
-		school.AddStudent(student1)
+		var (
+			lastName  string
+			firstName string
+			class     string
+		)
+
+		rows, err := db.Query("select lastname, firstname, class from details order by entrance_year")
+		check(err)
+		defer rows.Close()
+		for rows.Next() {
+			err := rows.Scan(&lastName, &firstName, &class)
+			check(err)
+			newStudent := MySchoolStudent{LastName: lastName, FirstName: firstName, Class: class}
+			school.AddStudent(newStudent)
+		}
 
 		tmpl.Execute(w, school)
 	})
