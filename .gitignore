@@ -14,3 +14,9 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+
+# for GoLand
+.idea/.gitignore
+.idea/modules.xml
+.idea/ubsgrader.iml
+.idea/vcs.xml
